@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Me</title>
+        <link rel="stylesheet" href="port_home.css">
+        <script src="port_home.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="heading">
+                <h4>Navigation Bar</h4>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Projects.html">Projects</a></li>
+                <li><a href="Skills.html">Skills</a></li>
+                <li><a class="active" href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="contact-form">
+            <form onsubmit="sendEmail(); reset(); return false;">
+          
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Your name..">
+          
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          
+              <label for="subject">Subject</label>
+              <textarea id="subject" name="subject" placeholder="Your message here..." style="height:200px"></textarea>
+          
+              <input type="submit" value="Submit">
+          
+            </form>
+          </div>
+          <script src="https://smtpjs.com/v3/smtp.js"></script>
+          <script>
+            function sendEmail(){
+                Email.send({
+                Host : "smtp.gmail.com",
+                Username : "mbarlund.moosend.com",
+                Password : "ThisPassword1!",
+                To : 'matthewbarlund@csu.fullerton.edu',
+                From : document.getElementById("fname").value + " " + document.getElementById("lname").value,
+                Subject : "Contact Form Submission",
+                Body : document.getElementById(subject).value
+            }).then(
+            message => alert(message)
+            );
+            }
+          </script>
+          <h4>My Socials</h4>
+          <div class="socials">
+          <ul>
+            <li><a href="https://www.linkedin.com/in/matthew-barlund-818b59222/">LinkedIn</a></li>
+            <li><a href="https://github.com/matthewbarlund">Github</a></li>
+          </ul>
+        </div>
+    </body>
+</html>
